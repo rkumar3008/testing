@@ -10,13 +10,16 @@ pool:
 trigger:
 - main
 
+variables:
+  source_directory: 'C:\Agent2\_work\4\s'
+
 steps:
 - task: TerraformTask@5
   displayName: 'Terraform init'
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: 'C:\Agent2\_work\4\s'
+    workingDirectory: $(source_directory)
     backendServiceArm: 'work-load-federation-service-connection'
     backendAzureRmResourceGroupName: 'backend-rg'
     backendAzureRmStorageAccountName: 'stgbknd'
@@ -28,7 +31,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: 'C:\Agent2\_work\4\s'
+    workingDirectory: $(source_directory)
     environmentServiceNameAzureRM: 'work-load-federation-service-connection'
 
 - task: TerraformTask@5
