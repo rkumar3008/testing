@@ -1,0 +1,35 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: non
+
+pool: nfra-agent-pool
+
+steps:
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'C:\Agent2\_work\4\s'
+    backendServiceArm: 'work-load-federation-service-connection'
+    backendAzureRmResourceGroupName: 'backend-rg'
+    backendAzureRmStorageAccountName: 'stgbknd'
+    backendAzureRmContainerName: 'statefile'
+    backendAzureRmKey: 'terraform.tfstat'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: 'C:\Agent2\_work\4\s'
+    environmentServiceNameAzureRM: 'work-load-federation-service-connection'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'C:\Agent2\_work\4\s'
+    commandOptions: '-- auto-approve'
+    environmentServiceNameAzureRM: 'work-load-federation-service-connection'
