@@ -12,6 +12,7 @@ trigger:
 
 steps:
 - task: TerraformTask@5
+  displayName: 'Terraform init'
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -23,6 +24,7 @@ steps:
     backendAzureRmKey: 'terraform.tfstat'
 
 - task: TerraformTask@5
+  displayName: 'Terraform Plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
@@ -30,6 +32,7 @@ steps:
     environmentServiceNameAzureRM: 'work-load-federation-service-connection'
 
 - task: TerraformTask@5
+  displayName: 'Terraform apply'
   inputs:
     provider: 'azurerm'
     command: 'apply'
