@@ -34,5 +34,5 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: 'C:\Agent2\_work\4\s'
-    commandOptions: '-- auto-approve'
+    commandOptions: '-auto-approve'
     environmentServiceNameAzureRM: 'work-load-federation-service-connection'
