@@ -8,7 +8,7 @@ pool:
   Infra-agent-pool
 
 trigger:
-  none
+- main
 
 steps:
 - task: TerraformTask@5
