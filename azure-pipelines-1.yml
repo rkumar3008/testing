@@ -27,6 +27,7 @@ steps:
     backendAzureRmKey: 'terraform.tfstat'
 
 - task: TerraformTask@5
+  displayName: 'terraform fmt'
   inputs:
     provider: 'azurerm'
     command: 'custom'
@@ -35,6 +36,7 @@ steps:
     environmentServiceNameAzureRM: 'work-load-federation-service-connection'
 
 - task: TerraformTask@5
+  displayName: 'terraform plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
