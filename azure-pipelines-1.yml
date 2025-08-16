@@ -6,6 +6,9 @@ trigger:
 pool:
   Infra-agent-pool
 
+variables:
+  spn: work-load-federation-service-connection
+
 steps:
 - task: TerraformInstaller@1
   displayName: 'terraform install'
@@ -17,7 +20,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'work-load-federation-service-connection'
+    backendServiceArm: $(spn)
     backendAzureRmResourceGroupName: 'backend-rg'
     backendAzureRmStorageAccountName: 'stgbknd'
     backendAzureRmContainerName: 'statefile'
@@ -30,11 +33,11 @@ steps:
     command: 'custom'
     outputTo: 'console'
     customCommand: 'fmt'
-    environmentServiceNameAzureRM: 'work-load-federation-service-connection'
+    environmentServiceNameAzureRM: $(spn)
 
 - task: TerraformTask@5
   displayName: 'terraform plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    environmentServiceNameAzureRM: 'work-load-federation-service-connection'
+    environmentServiceNameAzureRM: $(spn)
