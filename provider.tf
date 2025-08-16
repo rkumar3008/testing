@@ -24,10 +24,10 @@ resource "azurerm_resource_group" "rk-rg1" {
     location = "east us"
 }
 
-resource "azurerm_storage_account" "us-stg" {
-    name = "usstg12"
-    resource_group_name = azurerm_resource_group.rk-rg1.name
-    location = azurerm_resource_group.rk-rg1.location
-    account_tier = "Standard"
-    account_replication_type = "LRS"
-}
+# resource "azurerm_storage_account" "us-stg" {
+#     name = "usstg12"
+#     resource_group_name = azurerm_resource_group.rk-rg1.name
+#     location = azurerm_resource_group.rk-rg1.location
+#     account_tier = "Standard"
+#     account_replication_type = "LRS"
+# }
