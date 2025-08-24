@@ -1,5 +1,5 @@
 name: 1st workflow
-run-name: needToCheck
+run-name: myFirstWorkflow
 
 on:
   push:
