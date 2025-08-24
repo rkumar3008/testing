@@ -10,14 +10,18 @@ on:
 jobs:
   my_1st_job:
     name: myFirstJob
-    runs-on: Ranjeet1
-    
+    runs-on: Ranjeet1   # 👈 tera self-hosted runner label
+
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Terraform Init
       - name: Terraform Init
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force
-          terraform init
         shell: powershell
+        working-directory: C:\actions-runner\_work\testing\testing
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+          terraform init
+
