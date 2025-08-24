@@ -1,0 +1,19 @@
+name: 1st workflow
+run-name: needToCheck
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+
+jobs:
+  my_1st_job:
+    name: myFirstJob
+    runs-on: Ranjeet1
+    
+    steps:
+      - name: terraformInit
+        run: terraform init
+        working-directory: ./testing
+        
