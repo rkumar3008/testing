@@ -17,5 +17,5 @@ jobs:
 
       - name: displayPrint
         run: echo "This is my 1st workflow"
-        working-directory: ./temp
+        working-directory: C:\actions-runner\_work\testing\testing
   
