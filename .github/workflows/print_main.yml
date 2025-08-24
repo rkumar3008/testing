@@ -12,7 +12,7 @@ jobs:
     name: simplePrintJob
     runs-on: Ranjeet1
     steps:
-      - name: printName
+      - name: Name ko print krna
         shell: cmd
         run: echo thisIsMyFirstWorkflow
         
