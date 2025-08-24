@@ -10,13 +10,11 @@ on:
 jobs:
   my_1st_job:
     name: myFirstJob
-    runs-on: Ranjeet1   # tera self-hosted runner label
+    runs-on: Ranjeet1
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      # STEP 2: Terraform Init
       - name: Terraform Init
         run: terraform init
         working-directory: ./testing
