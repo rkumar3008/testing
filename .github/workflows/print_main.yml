@@ -1,0 +1,17 @@
+name: print
+run-name: printName
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+
+jobs:
+  my_1st_job:
+    name: simplePrintJob
+    runs-on: Ranjeet1
+    steps:
+      - name: displayPrint
+        run: echo "This is my 1st workflow"
+  
