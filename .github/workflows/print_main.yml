@@ -12,6 +12,9 @@ jobs:
     name: simplePrintJob
     runs-on: Ranjeet1
     steps:
+      - name: check out
+        uses: actions/checkout@v3
+
       - name: displayPrint
         run: echo "This is my 1st workflow"
   
